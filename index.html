@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IM GAYYYY</title>
+    <title>Happy Birthday, Bestie! 🎂</title>
     <style>
         /* Friendly fonts */
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap');
@@ -14,7 +14,7 @@
             box-sizing: border-box;
         }
 
-        /* Clean, soft gradient background - no rainbow */
+        /* Clean, soft gradient background */
         body {
             min-height: 100vh;
             display: flex;
@@ -26,7 +26,7 @@
             position: relative;
         }
 
-        /* Subtle floating elements - barely there */
+        /* Subtle floating elements */
         .floating-emoji {
             position: fixed;
             font-size: 2rem;
@@ -47,9 +47,106 @@
         .floating-emoji:nth-child(3) { bottom: 15%; left: 8%; animation-delay: 4s; }
         .floating-emoji:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 6s; }
 
-        /* Main card - clean and soft */
+        /* Main container to hold pfps and card */
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* PFP Container styles */
+        .pfp-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .pfp-container.left {
+            animation: slide-in-left 0.8s ease-out;
+        }
+
+        .pfp-container.right {
+            animation: slide-in-right 0.8s ease-out;
+        }
+
+        @keyframes slide-in-left {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slide-in-right {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* The spinning PFP */
+        .pfp {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ffd1d1, #ffe6f0);
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(255, 255, 255, 0.8);
+            animation: spin-smooth 8s infinite linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #ff8a9c;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        /* Placeholder emoji inside PFP */
+        .pfp .placeholder-emoji {
+            animation: spin-opposite 8s infinite linear;
+            /* This makes the emoji spin opposite to the container */
+            /* So if you put actual photos later, remove this and the spin-opposite animation */
+        }
+
+        /* If you want the emoji to stay upright while the container spins, use this */
+        @keyframes spin-opposite {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+
+        @keyframes spin-smooth {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* PFP label */
+        .pfp-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: white;
+            padding: 6px 18px;
+            border-radius: 40px;
+            color: #5a4a5a;
+            border: 2px solid rgba(255, 182, 193, 0.5);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .pfp-label.left {
+            background: linear-gradient(145deg, #ffe6f0, white);
+        }
+
+        .pfp-label.right {
+            background: linear-gradient(145deg, #e6f0ff, white);
+        }
+
+        /* Main card */
         .birthday-card {
-            max-width: 800px;
+            max-width: 700px;
             width: 100%;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -59,10 +156,9 @@
                         0 8px 20px rgba(0, 0, 0, 0.06),
                         inset 0 2px 4px rgba(255, 255, 255, 0.8);
             text-align: center;
-            position: relative;
-            z-index: 10;
             border: 1px solid rgba(255, 255, 255, 0.6);
             animation: card-soft-appear 1s ease-out;
+            margin: 0 10px;
         }
 
         @keyframes card-soft-appear {
@@ -70,9 +166,9 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Title with subtle gradient - not rainbow */
+        /* Title */
         h1 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-family: 'Comfortaa', cursive;
             font-weight: 700;
             margin-bottom: 20px;
@@ -83,6 +179,7 @@
             letter-spacing: 1px;
             animation: title-subtle 2s ease-in-out infinite;
             display: inline-block;
+            line-height: 1.3;
         }
 
         @keyframes title-subtle {
@@ -90,7 +187,7 @@
             50% { transform: scale(1.02); }
         }
 
-        /* Age badge - clean and soft */
+        /* Age badge */
         .age-glow {
             font-size: 2rem;
             font-family: 'Comfortaa', cursive;
@@ -109,7 +206,7 @@
             50% { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4); }
         }
 
-        /* Message box - clean and simple */
+        /* Message box */
         .message-box {
             background: white;
             border-radius: 32px;
@@ -137,7 +234,8 @@
         .heart-row {
             font-size: 2.2rem;
             letter-spacing: 8px;
-            color: #ffIM GAYYYY 10px 0;
+            color: #ff8a9c;
+            margin: 10px 0;
             animation: heart-pulse 2s ease-in-out infinite;
         }
 
@@ -146,7 +244,7 @@
             50% { transform: scale(1.1); opacity: 1; }
         }
 
-        /* Special note - clean and clear */
+        /* Special note */
         .special-note {
             background: linear-gradient(145deg, #e8f0fe, #f0e7fe);
             border-radius: 40px;
@@ -181,7 +279,7 @@
             border-bottom: 3px dotted #ffb6c1;
         }
 
-        /* Emoji row - clean bounce */
+        /* Emoji row */
         .emoji-row {
             font-size: 3.2rem;
             margin: 35px 0 20px;
@@ -216,7 +314,7 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* Footer - simple and sweet */
+        /* Footer */
         .footer-note {
             font-size: 1.4rem;
             background: white;
@@ -238,7 +336,7 @@
             border-color: white;
         }
 
-        /* Single confetti - very subtle */
+        /* Subtle confetti */
         .confetti {
             position: fixed;
             width: 8px;
@@ -252,11 +350,11 @@
             pointer-events: none;
         }
 
-        .confetti:nth-child(10) { left: 10%; animation-delay: 0s; }
-        .confetti:nth-child(11) { left: 30%; animation-delay: 2s; }
-        .confetti:nth-child(12) { left: 50%; animation-delay: 4s; }
-        .confetti:nth-child(13) { left: 70%; animation-delay: 6s; }
-        .confetti:nth-child(14) { left: 90%; animation-delay: 8s; }
+        .confetti:nth-child(20) { left: 10%; animation-delay: 0s; }
+        .confetti:nth-child(21) { left: 30%; animation-delay: 2s; }
+        .confetti:nth-child(22) { left: 50%; animation-delay: 4s; }
+        .confetti:nth-child(23) { left: 70%; animation-delay: 6s; }
+        .confetti:nth-child(24) { left: 90%; animation-delay: 8s; }
 
         @keyframes confetti-fall {
             0% { top: -10%; transform: rotate(0deg); opacity: 0.2; }
@@ -264,8 +362,33 @@
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
+            .main-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .pfp-container {
+                flex-direction: row;
+                gap: 30px;
+            }
+            
+            .pfp {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+            
             h1 { font-size: 2.8rem; }
+        }
+        
+        @media (max-width: 600px) {
+            .pfp {
+                width: 80px;
+                height: 80px;
+                font-size: 1.8rem;
+            }
+            
             .message-box p { font-size: 1.2rem; }
             .special-note p { font-size: 1.4rem; }
             .emoji-row { font-size: 2.5rem; gap: 12px; }
@@ -273,67 +396,121 @@
     </style>
 </head>
 <body>
-    <!-- Soft floating emojis - barely visible -->
+    <!-- Soft floating emojis -->
     <div class="floating-emoji">🎂</div>
     <div class="floating-emoji">🎈</div>
     <div class="floating-emoji">✨</div>
     <div class="floating-emoji">💫</div>
 
-    <!-- Very subtle confetti -->
+    <!-- Subtle confetti -->
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
 
-    <!-- Main card -->
-    <div class="birthday-card">
-        <!-- CHANGE NAME HERE -->
-        <h1>Happy Birthday KAT! :D</h1>
-
-        <!-- CHANGE AGE HERE -->
-        <div class="age-glow">✨ LEVEL 14 UNLOCKED✨</div>
-
-        <!-- MAIN MESSAGE - CUSTOMIZE -->
-        <div class="message-box">
-            <p>
-                To my absolute favorite human 💕<br>
-                You make life brighter just by being in it.
-            </p>
-            <p>
-                Every Text, every conversation, every moment<br>
-                with you is something I treasure so much.
-            </p>
-            <div class="heart-row">💖 💖 💖</div>
+    <!-- MAIN CONTAINER WITH PFP's -->
+    <div class="main-container">
+        <!-- LEFT PFP - YOURS (GAY BESTIE) -->
+        <div class="pfp-container left">
+            <div class="pfp">
+                <!-- PLACEHOLDER: Replace this div with an <img> tag later -->
+                <div class="placeholder-emoji">🌈</div>
+                <!-- WHEN YOU ADD REAL PFP, REPLACE THE ABOVE WITH:
+                <img src="your-photo.jpg" alt="Me" style="width:100%; height:100%; object-fit:cover;"> 
+                and remove the placeholder-emoji div and the spin-opposite animation class
+                -->
+            </div>
+            <div class="pfp-label left">✨ That's Me! ✨</div>
         </div>
 
-        <!-- SPECIAL NOTE - KEEP AS IS OR CUSTOMIZE -->
-        <div class="special-note">
-            <p>
-                I love you so much - 
-		in the most wonderful,<br>
-                lovely, cute way!!!!!
-            </p>
-            <!-- CHANGE YOUR NAME HERE -->
-            <div class="signature">- FROM NEEL AND IVAN</div>
+        <!-- MAIN BIRTHDAY CARD -->
+        <div class="birthday-card">
+            <!-- CHANGE NAME HERE -->
+            <h1>🥳 Happy Birthday<br>[FRIEND'S NAME]! 🥳</h1>
+
+            <!-- CHANGE AGE HERE -->
+            <div class="age-glow">✨ Level [AGE] Unlocked! ✨</div>
+
+            <!-- MAIN MESSAGE - CUSTOMIZE -->
+            <div class="message-box">
+                <p>
+                    To my absolute favorite human 💕<br>
+                    You make life brighter just by being in it.
+                </p>
+                <p>
+                    Every laugh, every conversation, every moment<br>
+                    with you is something I treasure so much.
+                </p>
+                <div class="heart-row">💖 💖 💖</div>
+            </div>
+
+            <!-- SPECIAL NOTE - KEEP AS IS OR CUSTOMIZE -->
+            <div class="special-note">
+                <p>
+                    🌈 Best friend status: LEGENDARY 🌈<br>
+                    I love you so much - in the most wonderful,<br>
+                    platonic, chosen-family kind of way!
+                </p>
+                <!-- CHANGE YOUR NAME HERE -->
+                <div class="signature">- [YOUR NAME] (your gay bestie 💕)</div>
+            </div>
+
+            <!-- EMOJI ROW -->
+            <div class="emoji-row">
+                <span>🎂</span>
+                <span>🎉</span>
+                <span>🎈</span>
+                <span>💖</span>
+                <span>🌈</span>
+                <span>✨</span>
+                <span>🫶</span>
+                <span>🥳</span>
+            </div>
+
+            <!-- FOOTER - CUSTOMIZE -->
+            <div class="footer-note">
+                Hope your day is as amazing as you are! ✨
+            </div>
         </div>
 
-        <div class="footer-note">
-            Hope your day is as amazing as you are! ✨
+        <!-- RIGHT PFP - HERS (BIRTHDAY GIRL) -->
+        <div class="pfp-container right">
+            <div class="pfp">
+                <!-- PLACEHOLDER: Replace this div with an <img> tag later -->
+                <div class="placeholder-emoji">👑</div>
+                <!-- WHEN YOU ADD REAL PFP, REPLACE THE ABOVE WITH:
+                <img src="her-photo.jpg" alt="Bestie" style="width:100%; height:100%; object-fit:cover;">
+                and remove the placeholder-emoji div and the spin-opposite animation class
+                -->
+            </div>
+            <div class="pfp-label right">👑 Birthday Queen 👑</div>
         </div>
     </div>
 
     <!-- 
         =============================================
-        CLEAN & SIMPLE VERSION
+        PFP INSTRUCTIONS:
         =============================================
-        TO CUSTOMIZE:
-        1. Replace [FRIEND'S NAME] with her name
-        2. Replace [AGE] with her age
-        3. Replace [YOUR NAME] with your name
+        1. LEFT PFP (yours): Replace the placeholder-emoji div with:
+           <img src="YOUR-PHOTO.jpg" alt="Me" style="width:100%; height:100%; object-fit:cover;">
+           
+        2. RIGHT PFP (hers): Replace the placeholder-emoji div with:
+           <img src="HER-PHOTO.jpg" alt="Bestie" style="width:100%; height:100%; object-fit:cover;">
+           
+        3. IMPORTANT: When you add real images, you can either:
+           - Keep the spin-smooth animation (pfps will spin with photos)
+           - OR remove the spin-smooth class from .pfp if you don't want spinning photos
+           
+        4. The placeholder emojis spin opposite to show they're placeholders
+           Real photos will just spin normally if you keep the spin-smooth class
+        =============================================
+        
+        TO CUSTOMIZE TEXT:
+        1. Replace [FRIEND'S NAME]
+        2. Replace [AGE]
+        3. Replace [YOUR NAME]
         4. Change any text in the message boxes
-        5. Save and send!
-        =============================================
     -->
 </body>
 </html>
