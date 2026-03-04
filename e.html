@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IM GAYYYY</title>
+    <style>
+        /* Friendly fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Clean, soft gradient background - no rainbow */
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(145deg, #f9e3e3 0%, #d9e4f5 100%);
+            position: relative;
+        }
+
+        /* Subtle floating elements - barely there */
+        .floating-emoji {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.15;
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+            animation: float-soft 12s infinite ease-in-out;
+        }
+
+        @keyframes float-soft {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+        .floating-emoji:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .floating-emoji:nth-child(2) { top: 20%; right: 8%; animation-delay: 2s; }
+        .floating-emoji:nth-child(3) { bottom: 15%; left: 8%; animation-delay: 4s; }
+        .floating-emoji:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 6s; }
+
+        /* Main card - clean and soft */
+        .birthday-card {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
+                        0 8px 20px rgba(0, 0, 0, 0.06),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            animation: card-soft-appear 1s ease-out;
+        }
+
+        @keyframes card-soft-appear {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Title with subtle gradient - not rainbow */
+        h1 {
+            font-size: 4rem;
+            font-family: 'Comfortaa', cursive;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #b24592, #f15f79);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            animation: title-subtle 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes title-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Age badge - clean and soft */
+        .age-glow {
+            font-size: 2rem;
+            font-family: 'Comfortaa', cursive;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 15px 0 20px;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            animation: badge-soft 3s ease-in-out infinite;
+        }
+
+        @keyframes badge-soft {
+            0%, 100% { transform: translateY(0); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
+            50% { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4); }
+        }
+
+        /* Message box - clean and simple */
+        .message-box {
+            background: white;
+            border-radius: 32px;
+            padding: 35px;
+            margin: 35px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border: 2px solid rgba(255, 210, 210, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .message-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            border-color: #ffb6c1;
+        }
+
+        .message-box p {
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .heart-row {
+            font-size: 2.2rem;
+            letter-spacing: 8px;
+            color: #ffIM GAYYYY 10px 0;
+            animation: heart-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes heart-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Special note - clean and clear */
+        .special-note {
+            background: linear-gradient(145deg, #e8f0fe, #f0e7fe);
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s ease;
+        }
+
+        .special-note:hover {
+            box-shadow: 0 15px 30px rgba(149, 157, 255, 0.15);
+        }
+
+        .special-note p {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #3a3a5a;
+            margin: 10px 0;
+        }
+
+        .signature {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #b24592, #f15f79);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            margin-top: 15px;
+            display: inline-block;
+            padding: 0 20px;
+            border-bottom: 3px dotted #ffb6c1;
+        }
+
+        /* Emoji row - clean bounce */
+        .emoji-row {
+            font-size: 3.2rem;
+            margin: 35px 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .emoji-row span {
+            display: inline-block;
+            animation: emoji-bounce 2s ease-in-out infinite;
+            transition: all 0.2s;
+        }
+
+        .emoji-row span:hover {
+            transform: scale(1.3);
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .emoji-row span:nth-child(1) { animation-delay: 0s; }
+        .emoji-row span:nth-child(2) { animation-delay: 0.2s; }
+        .emoji-row span:nth-child(3) { animation-delay: 0.4s; }
+        .emoji-row span:nth-child(4) { animation-delay: 0.6s; }
+        .emoji-row span:nth-child(5) { animation-delay: 0.8s; }
+        .emoji-row span:nth-child(6) { animation-delay: 1s; }
+        .emoji-row span:nth-child(7) { animation-delay: 1.2s; }
+        .emoji-row span:nth-child(8) { animation-delay: 1.4s; }
+
+        @keyframes emoji-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Footer - simple and sweet */
+        .footer-note {
+            font-size: 1.4rem;
+            background: white;
+            padding: 18px 28px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 25px;
+            border: 2px solid #ffb6c1;
+            color: #5a4a5a;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .footer-note:hover {
+            background: #ffb6c1;
+            color: white;
+            transform: scale(1.02);
+            border-color: white;
+        }
+
+        /* Single confetti - very subtle */
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(145deg, #fbc2c2, #c2d6fb);
+            top: -10%;
+            z-index: 1;
+            animation: confetti-fall 8s linear infinite;
+            opacity: 0.2;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .confetti:nth-child(10) { left: 10%; animation-delay: 0s; }
+        .confetti:nth-child(11) { left: 30%; animation-delay: 2s; }
+        .confetti:nth-child(12) { left: 50%; animation-delay: 4s; }
+        .confetti:nth-child(13) { left: 70%; animation-delay: 6s; }
+        .confetti:nth-child(14) { left: 90%; animation-delay: 8s; }
+
+        @keyframes confetti-fall {
+            0% { top: -10%; transform: rotate(0deg); opacity: 0.2; }
+            100% { top: 110%; transform: rotate(180deg); opacity: 0.1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.8rem; }
+            .message-box p { font-size: 1.2rem; }
+            .special-note p { font-size: 1.4rem; }
+            .emoji-row { font-size: 2.5rem; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Soft floating emojis - barely visible -->
+    <div class="floating-emoji">🎂</div>
+    <div class="floating-emoji">🎈</div>
+    <div class="floating-emoji">✨</div>
+    <div class="floating-emoji">💫</div>
+
+    <!-- Very subtle confetti -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <!-- Main card -->
+    <div class="birthday-card">
+        <!-- CHANGE NAME HERE -->
+        <h1>Happy Birthday KAT! :D</h1>
+
+        <!-- CHANGE AGE HERE -->
+        <div class="age-glow">✨ LEVEL 14 UNLOCKED✨</div>
+
+        <!-- MAIN MESSAGE - CUSTOMIZE -->
+        <div class="message-box">
+            <p>
+                To my absolute favorite human 💕<br>
+                You make life brighter just by being in it.
+            </p>
+            <p>
+                Every Text, every conversation, every moment<br>
+                with you is something I treasure so much.
+            </p>
+            <div class="heart-row">💖 💖 💖</div>
+        </div>
+
+        <!-- SPECIAL NOTE - KEEP AS IS OR CUSTOMIZE -->
+        <div class="special-note">
+            <p>
+                I love you so much - 
+		in the most wonderful,<br>
+                lovely, cute way!!!!!
+            </p>
+            <!-- CHANGE YOUR NAME HERE -->
+            <div class="signature">- FROM NEEL AND IVAN</div>
+        </div>
+
+        <div class="footer-note">
+            Hope your day is as amazing as you are! ✨
+        </div>
+    </div>
+
+    <!-- 
+        =============================================
+        CLEAN & SIMPLE VERSION
+        =============================================
+        TO CUSTOMIZE:
+        1. Replace [FRIEND'S NAME] with her name
+        2. Replace [AGE] with her age
+        3. Replace [YOUR NAME] with your name
+        4. Change any text in the message boxes
+        5. Save and send!
+        =============================================
+    -->
+</body>
+</html>
